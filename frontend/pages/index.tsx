@@ -1,7 +1,7 @@
 import 'dotenv';
-import { Box, Card, CardContent, Container } from '@mui/material';
-import TableComponent from './table';
-import QuestionComponent from './question';
+import { Card, CardContent, Container } from '@mui/material';
+import TableComponent from './table/table';
+import QuestionComponent from './question/question';
 
 export default function Home() {
   return (

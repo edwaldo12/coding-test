@@ -1,8 +1,8 @@
 import { Box, TextField, Typography, Skeleton } from '@mui/material';
 import { useState } from 'react';
-import { apiPost } from '../utils/api';
 import { LoadingButton } from '@mui/lab';
 import MarkdownRenderer from './MarkdownRenderer';
+import { apiPost } from '../../utils/api';
 
 export default function QuestionComponent() {
   const [question, setQuestion] = useState('');

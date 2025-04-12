@@ -1,8 +1,8 @@
-import { Box, TextField, Typography, CircularProgress } from '@mui/material';
+import { Box, TextField, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { DataGrid, GridSortModel } from '@mui/x-data-grid';
 import { columns } from './config-table';
-import { apiGet } from '../utils/api';
+import { apiGet } from '../../utils/api';
 import { useDebounce } from 'use-debounce';
 
 export default function TableComponent() {
