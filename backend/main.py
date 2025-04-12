@@ -69,6 +69,15 @@ def get_data(
         "salesReps": paginated,
         "total": total
     }
+    
+@app.get("/api/chart_data")
+def get_chart_data():
+    sales_reps = DUMMY_DATA.get("salesReps", [])
+    total = len(sales_reps)
+    return {
+        "salesReps": sales_reps,
+        "total": total
+    }
 
 @app.post("/api/ai")
 async def ai_endpoint(request: Request):
