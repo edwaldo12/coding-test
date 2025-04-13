@@ -10,9 +10,9 @@ Go to the frontend folder and run this prompt
 
 Detail of the project 
 - i already add unit-test so you guys could test using
-  pytest -v (-v for better log)
+  pytest -v (-v for better/verbose log)
 
-- and i used charts too for better simulation of sales dashboard
+- and i used charts too for better simulation of sales dashboard and it's real by our data
 
 - already integrated the apps with google gemini so we could call the apps being "AI Wrapper" app
 
