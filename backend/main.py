@@ -43,7 +43,6 @@ def get_data(
         
     if sortField and sortOrder:
         reverse = sortOrder.lower() == "desc"
-        
         def sort_key(rep):
             if sortField == "deals":
                 deals = rep.get("deals", [])
@@ -64,12 +63,12 @@ def get_data(
     start = page * pageSize
     end = start + pageSize
     paginated = filtered_reps[start:end]
-    
     return {
         "salesReps": paginated,
         "total": total
     }
     
+# Separate endpoint for chart data for easier use in the frontend
 @app.get("/api/chart_data")
 def get_chart_data():
     sales_reps = DUMMY_DATA.get("salesReps", [])
@@ -84,16 +83,12 @@ async def ai_endpoint(request: Request):
     api_key = os.getenv("GOOGLE_GEMINI_API_KEY")
     body = await request.json()
     user_question = body.get("question", "")
-    
     client = genai.Client(api_key=api_key)
-    
     response = client.models.generate_content(
         model="gemini-2.0-flash", 
         contents=user_question
     )
-    
     answer_text = response.text if hasattr(response, "text") else "No answer found."
-    
     return {"answer": answer_text}
 
 if __name__ == "__main__":
