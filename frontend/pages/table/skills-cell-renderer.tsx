@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Popover, Card, Typography, Box } from '@mui/material';
 import { GridRenderCellParams } from '@mui/x-data-grid';
 
-export default function SkillsCellRenderer(props: GridRenderCellParams) {
+const SkillsCellRenderer: React.FC<GridRenderCellParams> = (
+  props: GridRenderCellParams
+) => {
   const skills = (props.value as string[]) || [];
 
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
@@ -65,4 +67,6 @@ export default function SkillsCellRenderer(props: GridRenderCellParams) {
       </Popover>
     </>
   );
-}
+};
+
+export default SkillsCellRenderer;

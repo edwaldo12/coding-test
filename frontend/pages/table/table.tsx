@@ -4,16 +4,16 @@ import { DataGrid, GridSortModel } from '@mui/x-data-grid';
 import { columns } from './config-table';
 import { apiGet } from '../../utils/api';
 import { useDebounce } from 'use-debounce';
+import { SalesRep, SalesRepsData } from '@/types';
 
-export default function TableComponent() {
-  const [users, setUsers] = useState<any[]>([]);
+const TableComponent: React.FC = () => {
+  const [users, setUsers] = useState<SalesRep[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(5);
   const [total, setTotal] = useState(0);
   const [sortModel, setSortModel] = useState<GridSortModel>([]);
-
   const [debouncedSearch] = useDebounce(search, 500);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function TableComponent() {
       debouncedSearch || ''
     )}&page=${page}&pageSize=${pageSize}&sortField=${sortField}&sortOrder=${sortOrder}`;
     apiGet(url)
-      .then((data) => {
+      .then((data: SalesRepsData) => {
         setUsers(data.salesReps || []);
         setTotal(data.total || 0);
         setLoading(false);
@@ -40,7 +40,7 @@ export default function TableComponent() {
   }, [debouncedSearch, page, pageSize, sortModel]);
 
   return (
-    <Box>
+    <>
       <Typography variant="h5" component="h2" gutterBottom textAlign="center">
         Sales Dashboard
       </Typography>
@@ -77,6 +77,8 @@ export default function TableComponent() {
           disableRowSelectionOnClick
         />
       </Box>
-    </Box>
+    </>
   );
-}
+};
+
+export default TableComponent;

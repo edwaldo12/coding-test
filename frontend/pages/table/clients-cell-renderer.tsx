@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Box, Typography, Popover, Card } from '@mui/material';
 import { GridRenderCellParams } from '@mui/x-data-grid';
 
-export default function ClientsCellRenderer(props: GridRenderCellParams) {
+const ClientsCellRenderer: React.FC<GridRenderCellParams> = (
+  props: GridRenderCellParams
+) => {
   const clients =
     (props.value as Array<{
       name: string;
@@ -39,7 +41,6 @@ export default function ClientsCellRenderer(props: GridRenderCellParams) {
           variant="body2"
           sx={{
             color: '#00729b',
-            // textAlign: 'center',
             width: '100%',
           }}
         >
@@ -73,4 +74,6 @@ export default function ClientsCellRenderer(props: GridRenderCellParams) {
       </Popover>
     </>
   );
-}
+};
+
+export default ClientsCellRenderer;

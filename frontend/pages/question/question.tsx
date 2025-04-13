@@ -1,10 +1,10 @@
 import { Box, TextField, Typography, Skeleton } from '@mui/material';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { LoadingButton } from '@mui/lab';
 import MarkdownRenderer from './MarkdownRenderer';
 import { apiPost } from '../../utils/api';
 
-export default function QuestionComponent() {
+const QuestionComponent: React.FC = () => {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
   const [aiLoading, setAiLoading] = useState(false);
@@ -28,7 +28,7 @@ export default function QuestionComponent() {
   };
 
   return (
-    <Box>
+    <>
       <Typography variant="h5" component="h2" gutterBottom>
         Ask a question for me:
       </Typography>
@@ -68,6 +68,8 @@ export default function QuestionComponent() {
           )
         )}
       </Box>
-    </Box>
+    </>
   );
-}
+};
+
+export default QuestionComponent;

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Box, Typography, Popover, Card } from '@mui/material';
 import { GridRenderCellParams } from '@mui/x-data-grid';
 
-export default function DealsCellRenderer(props: GridRenderCellParams) {
+const DealsCellRenderer: React.FC<GridRenderCellParams> = (
+  props: GridRenderCellParams
+) => {
   const deals =
     (props.value as Array<{ client: string; value: number; status: string }>) ||
     [];
@@ -37,7 +39,6 @@ export default function DealsCellRenderer(props: GridRenderCellParams) {
           variant="body2"
           sx={{
             color: '#00729b',
-            // textAlign: 'center',
             width: '100%',
           }}
         >
@@ -72,4 +73,6 @@ export default function DealsCellRenderer(props: GridRenderCellParams) {
       </Popover>
     </>
   );
-}
+};
+
+export default DealsCellRenderer;
