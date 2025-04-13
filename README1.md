@@ -8,6 +8,7 @@ Go to the frontend folder and run this prompt
 - yarn / npm install
 - yarn dev / npm run dev
 
+Detail of the project 
 - i already add unit-test so you guys could test using
   pytest -v (-v for better log)
 
