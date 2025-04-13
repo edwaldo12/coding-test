@@ -6,7 +6,7 @@ import ClientsCellRenderer from './clients-cell-renderer';
 export const columns: GridColDef[] = [
   { field: 'name', headerName: 'Name', width: 200 },
   { field: 'role', headerName: 'Role', width: 250 },
-  { field: 'region', headerName: 'Region', width: 250 },
+  { field: 'region', headerName: 'Region', width: 150 },
   {
     field: 'skills',
     headerName: 'Skills',
@@ -26,7 +26,7 @@ export const columns: GridColDef[] = [
   {
     field: 'clients',
     headerName: 'Clients',
-    width: 200,
+    width: 150,
     renderCell: (params: GridRenderCellParams) => (
       <ClientsCellRenderer {...params} />
     ),
