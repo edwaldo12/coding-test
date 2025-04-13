@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from fastapi import FastAPI, Request, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 import uvicorn
 import json
 from typing import Optional
@@ -80,7 +81,12 @@ def get_chart_data():
 
 @app.post("/api/ai")
 async def ai_endpoint(request: Request):
-    api_key = os.getenv("GOOGLE_GEMINI_API_KEY")
+    api_key = os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        return JSONResponse(
+        status_code=400,
+        content={"error": "API key not found"}
+    )
     body = await request.json()
     user_question = body.get("question", "")
     client = genai.Client(api_key=api_key)
