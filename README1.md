@@ -1,12 +1,12 @@
 # PLEASE READ THIS
 
 Go to the backend folder and run this prompt
-pip install -r requirements.txt
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+- pip install -r requirements.txt
+- uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 
 Go to the frontend folder and run this prompt
-yarn / npm install
-yarn dev / npm run dev
+- yarn / npm install
+- yarn dev / npm run dev
 
 - i already add unit-test so you guys could test using
   pytest -v (-v for better log)
